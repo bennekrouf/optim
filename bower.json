@@ -16,6 +16,8 @@
   ],
   "devDependencies": {
     "angular": "~1.2.12",
-    "bootstrap": "~3.1.0"
+    "bootstrap": "~3.1.0",
+    "angular-cookies": "~1.2.12",
+    "angular-route": "~1.2.12"
   }
 }

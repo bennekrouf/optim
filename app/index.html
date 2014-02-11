@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="OffreApp">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="vendor/angular-cookies/angular-cookies.min.js"></script>
+    
+    <script src="scripts/app.js"></script>
+    
+    <title>POC Offre</title>
+</head>
+
+<body ng-controller="OffreCtrl">
+    
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table>
+        <tbody>
+              <tr ng-repeat="elem in liste">
+                <td>{{elem.nom}}</td>
+                <td>{{elem.prenom}}</td>
+              </tr>
+        </tbody>
+    
+    </table>
+    
+  </div>
+</div>
+    
+
+    
+    
+        
+</body>
+
+</html>
