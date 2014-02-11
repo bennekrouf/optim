@@ -22,6 +22,8 @@
     "angular-calendar": "*",
     "angular-ui-calendar": "~0.8.0",
     "angular-ui-bootstrap": "~0.10.0",
-    "jquery-ui": "~1.10.3"
+    "jquery-ui": "~1.10.3",
+    "bootstrap-ui": "~0.10.0",
+    "bootstrap-css": "~3.0.0"
   }
 }
