@@ -1,0 +1,30 @@
+<div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
+
+	<div class="panel panel-default">
+	    <div class="panel-body">
+	        <table>
+	            <tbody>
+	                  <tr ng-repeat="elem in liste">
+	                    <td>{{elem.nom}}</td>
+	                    <td>{{elem.prenom}}</td>
+	                  </tr>
+	            </tbody>
+
+	        </table>
+	    </div>
+	    <div class="panel-body">
+	        <div class="btn-toolbar">
+	            <p class="pull-right lead">Calendar One View Options</p>
+	            <div class="btn-group">
+	                <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar1)">AgendaDay</button>
+	                <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar1)">AgendaWeek</button>
+	                <button class="btn btn-success" ng-click="changeView('month', myCalendar1)">Month</button>
+	            </div>
+	          </div>
+	        
+	        
+	        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar"></div> 
+	    </div>
+	</div>
+
+</div>

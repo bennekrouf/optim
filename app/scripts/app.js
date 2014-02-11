@@ -1,13 +1,30 @@
 /**
  * OffreApp - 0.0.1
  */
-var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap']);
+var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute']);
 
 app.constant('CODE', {
 
   'LANGUAGE': 'Hungarian'
 
 });
+
+// Constantes : Type de notifications
+app.constant('NOTIFICATION_TYPE', {
+    'SUCCESS': 'success',
+    'INFO': 'info',
+    'WARNING': 'warning',
+    'ERROR': 'danger'
+});
+
+app.config(['$routeProvider', function($routeProvider){
+
+  $routeProvider
+  .when('/main', {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .when('/',     {templateUrl: 'views/calendar.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .otherwise({redirectTo: '/404'});
+
+}]);
 
 app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
   function CalendarCtrl(PubFactory, $scope, CODE) {
@@ -25,7 +42,6 @@ app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
             className: 'gcal-event',           // an option!
             currentTimezone: 'America/Chicago' // an option!
     };
-
 
     $scope.events = PubFactory.list();
 
