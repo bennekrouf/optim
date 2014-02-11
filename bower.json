@@ -18,6 +18,10 @@
     "angular": "~1.2.12",
     "bootstrap": "~3.1.0",
     "angular-cookies": "~1.2.12",
-    "angular-route": "~1.2.12"
+    "angular-route": "~1.2.12",
+    "angular-calendar": "*",
+    "angular-ui-calendar": "~0.8.0",
+    "angular-ui-bootstrap": "~0.10.0",
+    "jquery-ui": "~1.10.3"
   }
 }
