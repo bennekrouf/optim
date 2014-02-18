@@ -27,5 +27,3 @@ angular.module('OffreApp.mock', ['OffreApp', 'ngMockE2E'])
     $httpBackend.whenGET('views/main.html').passThrough();
 
 });
-
-
