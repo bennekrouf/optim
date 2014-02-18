@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="OffreApp">
+<html>
 
 <head>
     <meta name="viewport" content="width=device-width">
@@ -17,6 +17,8 @@
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-mocks/angular-mocks.js"></script>
+
     <script src="vendor/angular-route/angular-route.min.js"></script>
     <script src="vendor/angular-cookies/angular-cookies.min.js"></script>
     
@@ -29,13 +31,14 @@
     <script type="text/javascript" src="vendor/angular-ui/bootstrap/ui-bootstrap-0.9.0.min.js"></script>
     <script type="text/javascript" src="vendor/angular-ui/bootstrap/ui-bootstrap-tpls-0.9.0.min.js"></script>
     
+    <script type="text/javascript" src="../test/mocks/mainMocks.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services/notifications.js"></script>
     <script src="scripts/services/pub.js"></script>
     
     <title>POC Offre</title>
 
-    <body ng-controller="OffreCtrl">
+    <body ng-app="OffreApp.mock" ng-controller="OffreCtrl">
 
         <div ng-include="'views/notifications.html'" class="offre-alert-container container-fluid" ></div>
         <div ng-view="mainContainer"></div>

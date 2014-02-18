@@ -17,11 +17,15 @@ app.constant('NOTIFICATION_TYPE', {
     'ERROR': 'danger'
 });
 
+app.constant('API', {
+  'SPOT_LIST': '/api/spot/list'
+});
+
 app.config(['$routeProvider', function($routeProvider){
 
   $routeProvider
-  .when('/main', {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
   .when('/',     {templateUrl: 'views/calendar.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .when('/main', {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
   .otherwise({redirectTo: '/404'});
 
 }]);
