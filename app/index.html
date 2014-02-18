@@ -8,10 +8,12 @@
 
 	<script src="vendor/jquery/jquery.min.js"></script>
 
+    <!-- Feuilles de styles -->
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/bootstrap-css/css/bootstrap.css">
     <link rel="stylesheet" href="vendor/fullcalendar/fullcalendar.css">
-
+    <link rel="stylesheet" href="vendor/normalize-css/normalize.css">
+    
     <link rel="stylesheet" href="styles/main.css">
     
     <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -34,18 +36,17 @@
     
     <script type="text/javascript" src="../test/mocks/mainMocks.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/tutorial.js"></script>
     <script src="scripts/services/notifications.js"></script>
     <script src="scripts/services/pub.js"></script>
     <script src="scripts/constant.js"></script>
 
     
     <title>POC Offre</title>
-
+    
     <body ng-app="OffreApp.mock" ng-controller="OffreCtrl">
-
         <div ng-include="'views/notifications.html'" class="offre-alert-container container-fluid" ></div>
         <div ng-view="mainContainer"></div>
-            
     </body>
 
 </html>
