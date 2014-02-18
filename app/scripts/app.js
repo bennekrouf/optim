@@ -21,6 +21,7 @@ app.config(['$routeProvider', function($routeProvider){
 
   $routeProvider
   .when('/main', {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .when('/tutorial', {templateUrl: 'views/tutorial.html', view: 'mainContainer', controller: 'TutorialCtrl'})
   .when('/',     {templateUrl: 'views/calendar.html', view: 'mainContainer', controller: 'OffreCtrl'})
   .otherwise({redirectTo: '/404'});
 

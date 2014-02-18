@@ -24,6 +24,7 @@
     "angular-ui-bootstrap": "~0.10.0",
     "jquery-ui": "~1.10.3",
     "bootstrap-ui": "~0.10.0",
-    "bootstrap-css": "~3.0.0"
+    "bootstrap-css": "~3.0.0",
+    "normalize-css": "~3.0.0"
   }
 }
