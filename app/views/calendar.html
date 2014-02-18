@@ -1,4 +1,37 @@
 <div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
+    
+	<div class="panel panel-default">
+        <table class="table table-bordered c-screen-table">
+            <thead>
+                <tr>
+                    <th style="width: 100px;"/>
+                    <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="screen in screens">
+                    <td>{{screen.period}}</td>
+                    <td ng-repeat="dayOfWeek in daysOfWeek">
+                        <!-- Affichage d'une cellule de grille -->
+                        <div class="c-screen">
+                            <div class="c-screen-header">
+                                {{screen.title}}
+                            </div>
+                            <div class="c-screen-spots">
+                                <!-- Itération sur les spots de l'écran publicitaire -->
+                                <div ng-repeat="spot in screen.spots">
+                                    <div class="c-spot ui-draggable" unselectable="on">
+                                        <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 
 	<div class="panel panel-default">
 	    <div class="panel-body">

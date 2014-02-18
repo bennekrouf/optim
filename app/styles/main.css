@@ -13,3 +13,34 @@
     margin: auto;
     width: 500px;
 }
+
+/* Class pour le tableau de la grille. */
+.c-screen-table {
+    padding: 0 2px;
+}
+/* Class pour une cellule de la grille. */
+.c-screen {
+    position: relative;
+}
+/* Class pour le header d'une cellule de la grille. */
+.c-screen-header {
+    opacity: 0.3;
+    text-align: center;
+}
+/* Class pour un spot de la grille. */
+.c-spot {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    
+    border-width: 1px 0;
+    margin-bottom: 5px;
+    cursor: pointer;
+    
+    border: 1px solid #3a87ad;
+    background-color: #3a87ad;
+    color: #fff;
+    font-size: .85em;
+    
+    height: 30px;
+}

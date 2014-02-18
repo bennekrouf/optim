@@ -14,9 +14,12 @@ app.config(['$routeProvider', function($routeProvider){
   .otherwise({redirectTo: '/404'});
 }]);
 
-app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
-  function CalendarCtrl(PubFactory, $scope, CODE) {
-
+app.controller('OffreCtrl', ['PubFactory', 'PeriodFactory', '$scope', 'CODE', 'DAYS_OF_WEEK',
+  function CalendarCtrl(PubFactory, PeriodFactory, $scope, CODE, DAYS_OF_WEEK) {
+                             
+    /* Initialisation des constantes */
+    $scope.daysOfWeek = DAYS_OF_WEEK;
+                             
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -31,6 +34,8 @@ app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
             currentTimezone: 'America/Chicago' // an option!
     };
 
+    /* Initialisation des factories */
+    $scope.screens = PeriodFactory.getPeriodList();
     $scope.events = PubFactory.getSpotList();
 
   /* event source that calls a function on every view switch */
@@ -137,3 +142,21 @@ app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
     
     $scope.liste = elements;
 }]);
+
+
+/**
+ * Here below are declared all directives.
+ */
+app.directive('screen', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            done: '&'
+        },
+        template: '<div>' +
+                    '<div class="c-screen-header">' +
+                    'Hello' +
+                    '</div>' +
+                    '</div>'
+    }
+});
