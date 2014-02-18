@@ -1,25 +1,9 @@
 /**
  * OffreApp - 0.0.1
  */
-var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute']);
+'use strict';
 
-app.constant('CODE', {
-
-  'LANGUAGE': 'Hungarian'
-
-});
-
-// Constantes : Type de notifications
-app.constant('NOTIFICATION_TYPE', {
-    'SUCCESS': 'success',
-    'INFO': 'info',
-    'WARNING': 'warning',
-    'ERROR': 'danger'
-});
-
-app.constant('API', {
-  'SPOT_LIST': '/api/spot/list'
-});
+var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', function($routeProvider){
 
@@ -47,7 +31,7 @@ app.controller('OffreCtrl', ['PubFactory', '$scope', 'CODE',
             currentTimezone: 'America/Chicago' // an option!
     };
 
-    $scope.events = PubFactory.list();
+    $scope.events = PubFactory.getSpotList();
 
   /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, callback) {
