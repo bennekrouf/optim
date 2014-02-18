@@ -27,6 +27,7 @@
     "bootstrap-css": "~3.0.0",
     "normalize-css": "~3.0.0",
     "d3": "~3.4.1",
-	"angular-mocks": "~1.2.12"
+    "angular-mocks": "~1.2.12",
+    "angular-resource": "~1.2.13"
   }
 }
