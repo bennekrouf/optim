@@ -1,39 +1,6 @@
 <div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
     
 	<div class="panel panel-default">
-        <table class="table table-bordered c-screen-table">
-            <thead>
-                <tr>
-                    <th style="width: 100px;"/>
-                    <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="screen in screens">
-                    <td>{{screen.period}}</td>
-                    <td ng-repeat="dayOfWeek in daysOfWeek">
-                        <!-- Affichage d'une cellule de grille -->
-                        <div class="c-screen">
-                            <div class="c-screen-header">
-                                {{screen.title}}
-                            </div>
-                            <div class="c-screen-spots">
-                                <!-- Itération sur les spots de l'écran publicitaire -->
-                                <div ng-repeat="spot in screen.spots">
-                                    <div class="c-spot ui-draggable" unselectable="on">
-                                        <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-	<div class="panel panel-default">
 	    <div class="row" style="">
 
 	   		<div class="col-md-3" style="margin: 15px 0 0;">
@@ -184,19 +151,37 @@
 	   		</div>
 
 	   		<div class="col-md-9" style="margin: 15px 0 0;">
-			    <div class="panel-body">
-			        <div class="btn-toolbar">
-			            <p class="pull-right lead">Calendar One View Options</p>
-			            <div class="btn-group">
-			                <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar1)">AgendaDay</button>
-			                <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar1)">AgendaWeek</button>
-			                <button class="btn btn-success" ng-click="changeView('month', myCalendar1)">Month</button>
-			            </div>
-			          </div>
-			        
-			        
-			        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar"></div> 
-			    </div>
+                <div class="panel panel-default">
+                    <table class="table table-bordered c-screen-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;"/>
+                                <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="screen in screens" ng-init="screenIndex = $index">
+                                <td>{{screen.period}}</td>
+                                <td ng-repeat="dayOfWeek in daysOfWeek" ng-init="dayOfWeekIndex = $index">
+                                    <!-- Affichage d'une cellule de grille -->
+                                    <div class="c-screen">
+                                        <div class="c-screen-header">
+                                            {{screen.title}}{{dayOfWeekIndex}}
+                                        </div>
+                                        <div id="screenSpots{{$dayOfWeek.$index}}" class="c-screen-spots" droppable drop="handleDrop">
+                                            <!-- Itération sur les spots de l'écran publicitaire -->
+                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
+                                                <div id="spot{{screenIndex}}{{dayOfWeekIndex}}{{spotIndex}}" class="c-spot ui-draggable" unselectable="on" draggable>
+                                                    <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">Spot {{screenIndex}}{{dayOfWeekIndex}}{{spotIndex}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 	   		</div>
 		</div>
 	</div>
