@@ -32,16 +32,13 @@
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    
     border-width: 1px 0;
     margin-bottom: 5px;
     cursor: pointer;
-    
     border: 1px solid #3a87ad;
     background-color: #3a87ad;
     color: #fff;
     font-size: .85em;
-    
     height: 30px;
 }
 
@@ -50,4 +47,27 @@
     color: #333333;
     background-color: #9C9797;
     border-color: #7C7878;
+    -webkit-user-drag: element;
+    -webkit-user-select: none;
+}
+
+/* Class pour le tableau de la grille. */
+.c-screen-spots {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    min-height: 50px;
+    border: 1px solid blue;
+    padding: 10px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.over {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background-color: #3a87ad;
+    opacity: 0.3;
+
 }
