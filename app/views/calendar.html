@@ -1,204 +1,88 @@
 <div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
     
 	<div class="panel panel-default">
-        <table class="table table-bordered c-screen-table">
-            <thead>
-                <tr>
-                    <th style="width: 100px;"/>
-                    <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="screen in screens">
-                    <td>{{screen.period}}</td>
-                    <td ng-repeat="dayOfWeek in daysOfWeek">
-                        <!-- Affichage d'une cellule de grille -->
-                        <div class="c-screen">
-                            <div class="c-screen-header">
-                                {{screen.title}}
-                            </div>
-                            <div class="c-screen-spots">
-                                <!-- Itération sur les spots de l'écran publicitaire -->
-                                <div ng-repeat="spot in screen.spots">
-                                    <div class="c-spot ui-draggable" unselectable="on">
-                                        <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-	<div class="panel panel-default">
 	    <div class="row" style="">
 
 	   		<div class="col-md-3" style="margin: 15px 0 0;">
 
 	   			<div class="panel-group" id="criteriaAccordion">
 
-				<div class="accordion" id="myAccordion">
+					<div class="accordion" id="myAccordion">
 
-					    <div class="accordion-group">
-                  			
-                  			<!-- Bloque n°1 : Affichage-->
-						    <div class="panel panel-default">
+						    <div class="accordion-group">
+	                  			
+	                  			<!-- Bloque n°1 : Critères d'Affichage -->
+	                  			<div ng-include="'views/tpl/criteres.affichage.tpl.html'"></div>
 
-							    <div class="panel panel-heading">
-		                    	    <div class="panel-title form-inline">
-									    <H4 data-toggle="collapse" data-target="#collapsible-1" data-parent="#myAccordion">Affichage</H4>
-		                    	    </div>
+								<!-- Bloque n°2 : Filtres Ecrans -->
+	                  			<div ng-include="'views/tpl/filtres.ecrans.tpl.html'"></div>
 
-							    </div>
+								<!-- Bloque n°3 : Filtres Campagnes -->
+	                  			<div ng-include="'views/tpl/filtres.campagnes.tpl.html'"></div>
 
-	 						    <div id="collapsible-1" class="collapse in">
-	         						<div class="panel-body">
+								<!-- Bloque n°4 : Details écran -->
+	                  			<div ng-include="'views/tpl/details.ecrans.tpl.html'"></div>
 
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayTotalDuration"/>
-	         							Durée totale<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayCommercialDuration"/>
-	         							Durée Commercialiée<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayRemainingDuration"/>
-	         							Durée restante<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displaySoldDuration"/>
-	         							Durée vendue<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayOverbookedDuration"/>
-	         							Durée surboukée<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayAuthorizedDuration"/>
-	         							Surbook autorisé<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displaytarifFormat"/>
-	         							Tarif format<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayMonospot"/>
-	         							Monospot<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayNbrSpots"/>
-	         							Nbr spots<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displaySpecifique"/>
-	         							Spécifique<br>
-	         						<input class="pull-left" type="checkbox" ng-model="affichage.displayQuotas"/>
-	         							Dép. quotas<br>
-
-								    </div>
-								</div>
 							</div>
+	                </div>
 
-							<!-- Bloque n°2 : Filtres Ecrans -->
- 							<div class="panel panel-default">
-
-							    <div class="panel panel-heading">
-		                    	    <div class="panel-title form-inline">
-									    <H4 data-toggle="collapse" data-target="#collapsible-2" data-parent="#myAccordion">Filtres Ecrans</H4>
-		                    	    </div>
-
-							    </div>
-
-	 						    <div id="collapsible-2" class="collapse in">
-	         						<div class="panel-body">
-
-	         						Types écrans
-									<div class="btn-group btn-group-xs">
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.zero">0</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.un">1</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.deux">2</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.trois">3</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.quatre">4</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.cinq">5</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.six">6</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.sept">7</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.huit">8</button>
-									  <button type="button" class="btn btn-default" ng-model="typeEcran.neuf">9</button>
-
-									</div><br>
-
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayTypesEcranD817"/>
-	         							Types écrans D817<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displaySeuilAvailability"/>
-	         							Disponibilité Seuil<br>
-
-								    </div>
-								</div>
-							</div>
-
-							<!-- Bloque n°3 : Filtres Campagnes -->
-							<div class="panel panel-default">
-
-							    <div class="panel panel-heading">
-		                    	    <div class="panel-title form-inline">
-									    <H4 data-toggle="collapse" data-target="#collapsible-3" data-parent="#myAccordion">Filtres Campagnes</H4>
-		                    	    </div>
-
-							    </div>
-
-	 						    <div id="collapsible-3" class="collapse in">
-	         						<div class="panel-body">
-
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayConcVarSeuil"/>
-	         							Conc. Var. Seuil<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayConcSectSeuil"/>
-	         							Conc. Sect. Seuil<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayCibleGarantie"/>
-	         							CGRP cible Garantie<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayGRPCibleGarantie"/>
-	         							GRP cible Garantie<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayIndiceRetombée"/>
-	         							indice de retombée<br>
-
-								    </div>
-								</div>
-							</div>
-
-							<!-- Bloque n°4 : Details écran -->
-							<div class="panel panel-default">
-
-							    <div class="panel panel-heading">
-		                    	    <div class="panel-title form-inline">
-									    <H4 data-toggle="collapse" data-target="#collapsible-3" data-parent="#myAccordion">Détails écran</H4>
-		                    	    </div>
-
-							    </div>
-
-	 						    <div id="collapsible-3" class="collapse in">
-	         						<div class="panel-body">
-
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayConcVarSeuil"/>
-	         							Conc. Var. Seuil<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayConcSectSeuil"/>
-	         							Conc. Sect. Seuil<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayCibleGarantie"/>
-	         							CGRP cible Garantie<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayGRPCibleGarantie"/>
-	         							GRP cible Garantie<br>
-	         						<input class="pull-left" type="checkbox" ng-model="filtreEcran.displayIndiceRetombée"/>
-	         							indice de retombée<br>
-
-								    </div>
-								</div>
-							</div>
-						    </div>
-					</div>
-
-
-                </div>
+	            </div>
 
 	   		</div>
 
 	   		<div class="col-md-9" style="margin: 15px 0 0;">
-			    <div class="panel-body">
-			        <div class="btn-toolbar">
-			            <p class="pull-right lead">Calendar One View Options</p>
-			            <div class="btn-group">
-			                <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar1)">AgendaDay</button>
-			                <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar1)">AgendaWeek</button>
-			                <button class="btn btn-success" ng-click="changeView('month', myCalendar1)">Month</button>
-			            </div>
-			          </div>
-			        
-			        
-			        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar"></div> 
+
+				<div class="panel panel-default">
+			        <table class="table table-bordered c-screen-table">
+			            <thead>
+			                <tr>
+			                    <th style="width: 100px;"/>
+			                    <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+
+			                <tr ng-repeat="screen in screens">
+			                    <td>{{screen.period}}</td>
+			                    <td ng-repeat="dayOfWeek in daysOfWeek">
+			                        <!-- Affichage d'une cellule de grille -->
+			                        <div class="c-screen">
+			                            <div class="c-screen-header">
+			                                {{screen.title}}
+			                            </div>
+			                            <div class="c-screen-spots">
+			                                <!-- Itération sur les spots de l'écran publicitaire -->
+			                                <div ng-repeat="spot in screen.spots">
+			                                    <div class="c-spot ui-draggable" unselectable="on">
+			                                        <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                    </td>
+			                </tr>
+
+			            </tbody>
+			        </table>
 			    </div>
+
+
 	   		</div>
+
+
+		    <div class="panel-body">
+		        <div class="btn-toolbar">
+		            <p class="pull-right lead">Calendar One View Options</p>
+		            <div class="btn-group">
+		                <button class="btn btn-success" ng-click="changeView('agendaDay', myCalendar1)">AgendaDay</button>
+		                <button class="btn btn-success" ng-click="changeView('agendaWeek', myCalendar1)">AgendaWeek</button>
+		                <button class="btn btn-success" ng-click="changeView('month', myCalendar1)">Month</button>
+		            </div>
+		          </div>
+		        
+		        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources" calendar="myCalendar1" config="uiConfig.calendar"></div> 
+		    </div>
+
 		</div>
 	</div>
 

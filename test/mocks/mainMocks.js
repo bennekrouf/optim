@@ -32,6 +32,10 @@ angular.module('OffreApp.mock', ['OffreApp', 'ngMockE2E'])
 	$httpBackend.whenGET(API.SPOT_LIST).respond(spots);
     $httpBackend.whenGET(API.PERIOD_LIST).respond(screens);
 
+    $httpBackend.whenGET('views/tpl/criteres.affichage.tpl.html').passThrough();
+    $httpBackend.whenGET('views/tpl/filtres.ecrans.tpl.html').passThrough();
+    $httpBackend.whenGET('views/tpl/filtres.campagnes.tpl.html').passThrough();
+    $httpBackend.whenGET('views/tpl/details.ecrans.tpl.html').passThrough();
     $httpBackend.whenGET('views/calendar.html').passThrough();
     $httpBackend.whenGET('views/notifications.html').passThrough();
     $httpBackend.whenGET('views/main.html').passThrough();
