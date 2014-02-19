@@ -2,6 +2,9 @@ app.controller('TutorialCtrl', function ($scope) {
     $scope.logChore = function (chore) {
         alert(chore + " is done!");
     }
+    
+    $scope.list1 = {title: 'AngularJS - Drag Me'};
+    $scope.list2 = {title: 'AngularJS - Drop Me'};
 });
         
 app.directive('kid', function () {
