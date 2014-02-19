@@ -44,3 +44,10 @@
     
     height: 30px;
 }
+
+/* Class pour les panels - la couleur bootstrap est trop fade. */
+.c-panel-heading {
+    color: #333333;
+    background-color: #9C9797;
+    border-color: #7C7878;
+}
