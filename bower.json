@@ -29,6 +29,9 @@
     "d3": "~3.4.1",
     "angular-mocks": "~1.2.12",
     "angular-resource": "~1.2.13",
-    "angular-dragdrop": "~1.0.6"
+    "angular-dragdrop": "~1.0.6",
+    "jquery": "~2.1.0",
+    "ui-bootstrap": "~0.10.0",
+    "angular-ui": "~0.4.0"
   }
 }
