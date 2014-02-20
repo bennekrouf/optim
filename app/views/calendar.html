@@ -1,7 +1,7 @@
 <div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
     
-	<div class="panel panel-default">
-	    <div class="row colonnes" style="">
+	<div>
+	    <div class="row colonnes">
 
 	   		<div class="col-md-3">
 
@@ -30,29 +30,32 @@
 
 	   		</div>
 
-	   		<div class="col-md-9">
-                <div class="panel panel-default">
+	   		<div class="col-md-8">
+                <button class="button" ng-click="alert('toto');">Click Me</button>
+                <div class="btn btn-default btn-sm" ng-click="alert('toto')">I\'m done!</div>
+                
+                <div>
                     <table class="table table-bordered c-screen-table">
                         <thead>
                             <tr>
-                                <th style="width: 100px;"/>
-                                <th ng-repeat="dayOfWeek in daysOfWeek">{{dayOfWeek.day}}</th>
+                                <th class="c-col-period"/>
+                                <th ng-repeat="dayOfWeek in daysOfWeek" class="c-col-day">{{dayOfWeek.day}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="screen in screens" ng-init="screenIndex = $index">
-                                <td>{{screen.period}}</td>
-                                <td ng-repeat="dayOfWeek in daysOfWeek" ng-init="dayOfWeekIndex = $index">
+                            <tr ng-repeat="period in gridPeriods" ng-init="periodIndex = $index">
+                                <td class="c-col-period">{{period}}</td>
+                                <td ng-repeat="dayOfWeek in gridDaysOfWeek" ng-init="dayOfWeekIndex = $index; screen = grid[period][dayOfWeek][0]" class="c-col-day">
                                     <!-- Affichage d'une cellule de grille -->
                                     <div class="c-screen">
                                         <div class="c-screen-header">
-                                            {{screen.title}}{{dayOfWeekIndex}}
+                                            {{screen.title}}
                                         </div>
-                                        <div id="screenSpots{{$dayOfWeek.$index}}" class="c-screen-spots" droppable drop="handleDrop">
+                                        <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
                                             <!-- Itération sur les spots de l'écran publicitaire -->
                                             <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
-                                                <div id="spot{{screenIndex}}{{dayOfWeekIndex}}{{spotIndex}}" class="c-spot ui-draggable" unselectable="on" draggable>
-                                                    <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">Spot {{screenIndex}}{{dayOfWeekIndex}}{{spotIndex}}</span>
+                                                <div id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
+                                                    <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
                                                 </div>
                                             </div>
                                         </div>

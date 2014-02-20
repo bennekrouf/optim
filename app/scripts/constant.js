@@ -16,7 +16,7 @@ var app = angular.module('OffreApp')
 
 .constant('API', {
   'SPOT_LIST': '/api/spot/list',
-  'PERIOD_LIST': '/api/period/list'
+  'GRID': '/api/grid'
 })
 
 /* Constants for Calandar building. */

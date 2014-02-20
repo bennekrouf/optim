@@ -1,3 +1,7 @@
+body {
+    font-size: 14px;
+}
+
 .offre-alert-container {
     position: fixed;
     bottom: 0;
@@ -18,28 +22,40 @@
 .c-screen-table {
     padding: 0 2px;
 }
+.c-screen-table tbody > tr > td {
+    padding: 2px;
+}
+
+/* Class la colonne de période. */
+.c-col-period {
+    min-width: 50px;
+}
+/* Class les colonnes de journée. */
+.c-col-day {
+    width: 140px;
+    padding: 2px;
+}
 /* Class pour une cellule de la grille. */
 .c-screen {
     position: relative;
+    height: 100%;
 }
 /* Class pour le header d'une cellule de la grille. */
 .c-screen-header {
-    opacity: 0.3;
+    font-size: 8px;
     text-align: center;
+    opacity: 0.3;
 }
 /* Class pour un spot de la grille. */
 .c-spot {
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
     border-width: 1px 0;
-    margin-bottom: 5px;
     cursor: pointer;
     border: 1px solid #3a87ad;
     background-color: #3a87ad;
     color: #fff;
-    font-size: .85em;
+    font-size: 9px;
     height: 30px;
+    margin-bottom: 2px;
 }
 
 /* Class pour les panels - la couleur bootstrap est trop fade. */
@@ -47,31 +63,32 @@
     color: #333333;
     background-color: #9C9797;
     border-color: #7C7878;
+    font-size: 0.1em;
     -webkit-user-drag: element;
     -webkit-user-select: none;
 }
 
 /* Class pour le tableau de la grille. */
 .c-screen-spots {
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border-radius:5px;
     min-height: 50px;
-    border: 1px solid blue;
-    padding: 10px;
+    border: 1px solid #dddddd;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0px;
 }
 
 .over {
+    background-color: #3a87ad;
+    opacity: 0.3;
+}
+
+.c-spot, .c-screen-spots, .over {
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    background-color: #3a87ad;
-    opacity: 0.3;
-
 }
-
 
 .colonnes {
     margin: 400px 400px 400 400;

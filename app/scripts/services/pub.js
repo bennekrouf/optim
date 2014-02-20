@@ -7,7 +7,7 @@ angular.module('OffreApp')
 }])
 
 .factory('PeriodFactory', ['API', '$resource', function(API, $resource) {
-  return $resource(API.PERIOD_LIST, {}, {
-      getPeriodList: {method: 'GET', params: {}, isArray: true}
+  return $resource(API.GRID, {}, {
+      getGrid: {method: 'GET', params: {}, isArray: false}
   });
 }]);

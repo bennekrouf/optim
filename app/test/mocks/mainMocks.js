@@ -8,13 +8,7 @@ angular.module('OffreApp.mock', ['OffreApp', 'ngMockE2E'])
     var y = date.getFullYear();
 
     /* Liste des écrans publicitaires affichés sur la grille. */
-    var screens = [
-                   {period: 800,  title: 'Screen Title', spots:[{title: 'Spot title', duration: 30}, {title: 'Spot title 2', duration: 30}]},
-                   {period: 1230, title: 'Screen Title', spots:[{title: 'Spot title', duration: 30}]},
-                   {period: 1255, title: 'Screen Title', spots:[{title: 'Spot title', duration: 30}]},
-                   {period: 1305, title: 'Screen Title', spots:[{title: 'Spot title', duration: 30}]},
-                   {period: 1500, title: 'Screen Title', spots:[{title: 'Spot title', duration: 30}]}
-                   ];
+    var grid = {"grid":{"800":{"Lundi":[{"title":"Ecran Lundi 800","duration":10,"spots":[{"title":"Spot Lundi 800 0","duration":10}]}],"Mardi":[{"title":"Ecran Mardi 800","duration":10,"spots":[{"title":"Spot Mardi 800 0","duration":10}]}],"Mercredi":[{"title":"Ecran Mercredi 800","duration":10,"spots":[{"title":"Spot Mercredi 800 0","duration":10}]}],"Jeudi":[{"title":"Ecran Jeudi 800","duration":10,"spots":[{"title":"Spot Jeudi 800 0","duration":10}]}],"Vendredi":[{"title":"Ecran Vendredi 800","duration":10,"spots":[{"title":"Spot Vendredi 800 0","duration":10}]}],"Samedi":[{"title":"Ecran Samedi 800","duration":10,"spots":[{"title":"Spot Samedi 800 0","duration":10}]}],"Dimanche":[{"title":"Ecran Dimanche 800","duration":10,"spots":[{"title":"Spot Dimanche 800 0","duration":10}]}]},"1230":{"Lundi":[{"title":"Ecran Lundi 1230","duration":10,"spots":[{"title":"Spot Lundi 1230 0","duration":10}]}],"Mardi":[{"title":"Ecran Mardi 1230","duration":10,"spots":[{"title":"Spot Mardi 1230 0","duration":10}]}],"Mercredi":[{"title":"Ecran Mercredi 1230","duration":10,"spots":[{"title":"Spot Mercredi 1230 0","duration":10}]}],"Jeudi":[{"title":"Ecran Jeudi 1230","duration":10,"spots":[{"title":"Spot Jeudi 1230 0","duration":10}]}],"Vendredi":[{"title":"Ecran Vendredi 1230","duration":10,"spots":[{"title":"Spot Vendredi 1230 0","duration":10}]}],"Samedi":[{"title":"Ecran Samedi 1230","duration":10,"spots":[{"title":"Spot Samedi 1230 0","duration":10}]}],"Dimanche":[{"title":"Ecran Dimanche 1230","duration":10,"spots":[{"title":"Spot Dimanche 1230 0","duration":10}]}]}}};
 	
 	var spots = [
 	             {title: 'All Day Event',start: new Date(y, m, 1)},
@@ -30,7 +24,7 @@ angular.module('OffreApp.mock', ['OffreApp', 'ngMockE2E'])
 	             ];
 
 	$httpBackend.whenGET(API.SPOT_LIST).respond(spots);
-    $httpBackend.whenGET(API.PERIOD_LIST).respond(screens);
+    $httpBackend.whenGET(API.GRID).respond(grid);
 
     $httpBackend.whenGET('views/tpl/criteres.affichage.tpl.html').passThrough();
     $httpBackend.whenGET('views/tpl/filtres.ecrans.tpl.html').passThrough();
