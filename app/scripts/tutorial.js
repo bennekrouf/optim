@@ -27,9 +27,3 @@ app.directive('drink', function () {
         }
     }
 });
-
-app.controller('TutorialCtrl', function($scope) {
-    $scope.handleDrop = function(item, bin) {
-        alert('Item ' + item + ' has been dropped into ' + bin);
-    }
-});

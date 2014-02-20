@@ -1,29 +1,10 @@
 <div class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="TutorialCtrl">
 
-    <div class="container">
+    <div class="btn btn-default btn-sm" ng-click="alert('toto');">I'm done!</div>
+    
+    <div class="container" ng-repead>
         <kid done="logChore(chore)"></kid>
-        <kid done="logChore(chore)"></kid>
-        <kid done="logChore(chore)"></kid>
-        
-        <drink>TOTO</drink>
-    </div>
-    
-    <div class="container">
-        <div class="t-bin" droppable drop="handleDrop" ng-repeat="bin in [1, 2, 3]" id="bin{{ bin }}"></div>
-        <div class="t-item" id="item{{ item }}" ng-repeat="item in [1, 2, 3]" draggable item="item">{{ item }}</div>
     </div>
     
     
-    <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}"
-         ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title" jqyouiDraggable>
-        {{list1.title}}
-    </div>
-    
-    <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
-      <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2"
-           jqyoui-draggable ng-hide="!list2.title">
-          {{list2.title}}</div>
-    </div>
-    
-    <div class="btn btn-primary ng-pristine ng-valid ng-binding ui-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title" style="position: relative; z-index: auto; left: 0px; top: 0px;" aria-disabled="false">AngularJS - Drag Me</div>
 </div>
