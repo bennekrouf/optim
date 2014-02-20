@@ -180,6 +180,16 @@ app.controller('OffreCtrl', ['PubFactory', 'PeriodFactory', '$scope', 'CODE', 'D
         $scope.fadeTotalDuration = !$scope.fadeTotalDuration;
         alert($scope.fadeTotalDuration);
     }
+    
+    $scope.jqueryHide = true;
+    $scope.jqueryHideMe = function(message) {
+    	if ($scope.jqueryHide) {
+    		$(".jqueryHideMe").hide();
+    	} else {
+    		$(".jqueryHideMe").show();
+    	}
+    	$scope.jqueryHide = !$scope.jqueryHide;
+    }
 }]);
 
 

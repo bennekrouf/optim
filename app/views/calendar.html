@@ -54,7 +54,7 @@
                                         <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
                                             <!-- Itération sur les spots de l'écran publicitaire -->
                                             <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
-                                                <div ng-show="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
+                                                <div ng-show="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
                                                     <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
                                                 </div>
                                             </div>
