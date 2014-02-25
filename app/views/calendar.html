@@ -39,23 +39,22 @@
                         <thead>
                             <tr>
                                 <th class="c-col-period"/>
-                                <th ng-repeat="dayOfWeek in daysOfWeek" class="c-col-day">{{dayOfWeek.day}}</th>
+                                <th ng-repeat="dayOfWeek in daysOfWeek" class="c-col-day" bind-once ng-bind="dayOfWeek.day"/>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="period in gridPeriods" ng-init="periodIndex = $index">
-                                <td class="c-col-period">{{period}}</td>
+                                <td class="c-col-period" bind-once ng-bind="period" />
                                 <td ng-repeat="dayOfWeek in gridDaysOfWeek" ng-init="dayOfWeekIndex = $index; screen = grid[period][dayOfWeek][0]" class="c-col-day">
                                     <!-- Affichage d'une cellule de grille -->
                                     <div class="c-screen">
-                                        <div class="c-screen-header">
-                                            {{screen.title}}
-                                        </div>
+                                        <div class="c-screen-header" bind-once ng-bind="screen.title" />
                                         <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
                                             <!-- Itération sur les spots de l'écran publicitaire -->
-                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
-                                                <div ng-show="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
-                                                    <span class="fc-event-time">{{spot.duration}}</span><span class="fc-event-title">{{spot.title}}</span>
+                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index" mybindonce>
+                                                <div ng-if="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}" bind-once>
+                                                    <span class="fc-event-time" bind-once ng-bind="spot.duration" />
+                                                    <span class="fc-event-title" bind-once ng-bind="spot.title" />
                                                 </div>
                                             </div>
                                         </div>

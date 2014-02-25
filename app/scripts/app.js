@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute', 'ngResource', 'ngAnimate']);
+var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute', 'ngResource', 'ngAnimate', 'pasvaz.bindonce']);
 
 app.config(['$routeProvider', function($routeProvider){
 
@@ -212,6 +212,21 @@ app.animation(".fade", function() {
  * Here below are declared all directives.
  ** --------------------------------------------
  */
+
+/**
+ * Directive pour supprimer le binding.
+ */
+app.directive('mybindonce', function() {
+    return {
+        scope: true,
+        link: function( $scope, $element ) {
+            setTimeout(function() {
+                $scope.$destroy();
+                $element.removeClass('ng-binding ng-scope');
+            }, 0);
+        }
+    }
+});
 
 /**
  * Définition d'un écran, au sens cellule de la grille de programmation.
