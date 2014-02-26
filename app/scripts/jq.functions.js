@@ -6,7 +6,18 @@
  * Fonction principale de création de la grille.
  * http://jsperf.com/jquery-vs-createelement
  */
-function createGridTable(rows, cols) {
+function createGridTable(cols, rows) {
+    
+    var pGrid = gridNative;
+    var gridHours = Object.keys(pGrid);
+    var gridDays = Object.keys(pGrid[gridHours[0]]);
+    
+    /*var scope = angular.element(document.getElementById("calendarDiv")).scope();
+    alert(scope.grid);
+    scope.$apply(function() {
+        alert('ICI');
+    });*/
+    
     var table = document.createElement("table");
     table.className = "table table-bordered c-screen-table";
     
@@ -17,25 +28,44 @@ function createGridTable(rows, cols) {
     var row = document.createElement("tr");
     thead.appendChild(row);
     
-    for (var c = 0; c < cols; c++) {
+    // Colonne des périodes
+    var th1 = document.createElement("th");
+    th1.className = "c-col-period";
+    row.appendChild(th1);
+    // Itération sur les colonnes de jour
+    for (var colIndex in gridDays) {
+        var dayKey = gridDays[colIndex];
         var th = document.createElement("th");
         th.className = "c-col-day";
-        var texthead = document.createTextNode("Column " + c);
+        var texthead = document.createTextNode(dayKey);
         th.appendChild(texthead);
         row.appendChild(th);
     }
     
     // Création du body
     var tbody = document.createElement("tbody");
-    for (r = 0; r <= rows; r++) {
+    
+    for (var rowIndex in gridHours) {
+        var hour = gridHours[rowIndex];
+        var rowData = pGrid[hour]
         row = document.createElement("tr");
         tbody.appendChild(row);
         
-        for (var c = 0; c < cols; c++) {
+        // Première colonne de période
+        var td1 = document.createElement("td");
+        td1.className = "c-col-period";
+        td1.appendChild(document.createTextNode(hour));
+        row.appendChild(td1);
+        
+        for (var colIndex in gridDays) {
+            var day = gridDays[colIndex];
+            var screenData = rowData[day][0];
+            screenData.hour = hour;
+            screenData.day = day;
             var td = document.createElement("td");
             td.className = "c-col-period";
             
-            var spots = createGridCellContent(40);
+            var spots = createGridCellContent(screenData);
 //            var texthead = document.createTextNode("TD " + r + "-" + c);
 //            td.appendChild(texthead);
             td.appendChild(spots);
@@ -48,14 +78,15 @@ function createGridTable(rows, cols) {
 }
 /**
  * Fonction secondaire de création du contenu d'une cellule de grille.
+ * @param screenData Les données de l'écran (qui contient les spots)
  */
-function createGridCellContent(nbSpots) {
+function createGridCellContent(screen) {
     var result = document.createElement("div");
     result.classList = "c-screen";
     // header
     var headerDiv = document.createElement("div");
     headerDiv.classList = "c-screen-header";
-    var headerText = document.createTextNode("Ecran Lundi 0");
+    var headerText = document.createTextNode(screen.title);
     result.appendChild(headerText);
     
     // Liste des spots
@@ -64,11 +95,14 @@ function createGridCellContent(nbSpots) {
     spots.setAttribute("droppable", "");
     result.appendChild(spots);
     
+    var spotsList = screen.spots;
     // liste des spots
-    for (var s = 0; s < nbSpots; s++) {
+    for (var spotIndex in spotsList) {
+        var oneSpot = spotsList[spotIndex];
         var spot = document.createElement("div");
         spot.className = "c-spot ui-draggable jqueryHideMe";
-        spot.setAttribute("id", "toto");
+        var spotId = screen.hour + "_" + screen.day + "_" + spotIndex;
+        spot.setAttribute("id", spotId);
         spot.setAttribute("draggable", "true");
         spot.setAttribute("unselectable", "on");
         spots.appendChild(spot);
@@ -76,12 +110,12 @@ function createGridCellContent(nbSpots) {
         var spotDuration = document.createElement("span");
         spotDuration.className = "fc-event-time";
         spot.appendChild(spotDuration);
-        spotDuration.appendChild(document.createTextNode(s + "s"));
+        spotDuration.appendChild(document.createTextNode(oneSpot.duration + "/"));
                          
         var spotTitle = document.createElement("span");
         spotTitle.className = "fc-event-title";
         spot.appendChild(spotTitle);
-        spotTitle.appendChild(document.createTextNode("Spot " + s));
+        spotTitle.appendChild(document.createTextNode(oneSpot.title));
     }
     return result;
 }

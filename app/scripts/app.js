@@ -49,7 +49,6 @@ app.controller('OffreCtrl', ['PubFactory', 'PeriodFactory', '$scope', 'CODE', 'D
 
     PeriodFactory.getGrid(function(data){
         $scope.grid = data;
-
         $scope.gridPeriods = Object.keys($scope.grid);
         $scope.gridDaysOfWeek = Object.keys($scope.grid[$scope.gridPeriods[0]]);
       });
