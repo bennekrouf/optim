@@ -42,7 +42,7 @@ body {
 }
 /* Class pour le header d'une cellule de la grille. */
 .c-screen-header {
-    font-size: 8px;
+    font-size: 10px;
     text-align: center;
     opacity: 0.3;
 }
@@ -53,7 +53,7 @@ body {
     border: 1px solid #3a87ad;
     background-color: #3a87ad;
     color: #fff;
-    font-size: 9px;
+    font-size: 10px;
     height: 30px;
     margin-bottom: 2px;
 }
@@ -71,6 +71,7 @@ body {
 /* Class pour le tableau de la grille. */
 .c-screen-spots {
     min-height: 50px;
+    min-width: 200px;
     border: 1px solid #dddddd;
     padding-top: 2px;
     padding-left: 2px;

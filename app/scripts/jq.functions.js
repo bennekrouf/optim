@@ -82,12 +82,12 @@ function createGridTable(cols, rows) {
  */
 function createGridCellContent(screen) {
     var result = document.createElement("div");
-    result.classList = "c-screen";
+    result.className = "c-screen";
     // header
     var headerDiv = document.createElement("div");
-    headerDiv.classList = "c-screen-header";
-    var headerText = document.createTextNode(screen.title);
-    result.appendChild(headerText);
+    headerDiv.className = "c-screen-header";
+    headerDiv.appendChild(document.createTextNode(screen.title));
+    result.appendChild(headerDiv);
     
     // Liste des spots
     var spots = document.createElement("div");
@@ -110,7 +110,7 @@ function createGridCellContent(screen) {
         var spotDuration = document.createElement("span");
         spotDuration.className = "fc-event-time";
         spot.appendChild(spotDuration);
-        spotDuration.appendChild(document.createTextNode(oneSpot.duration + "/"));
+        spotDuration.appendChild(document.createTextNode(oneSpot.duration + " "));
                          
         var spotTitle = document.createElement("span");
         spotTitle.className = "fc-event-title";
