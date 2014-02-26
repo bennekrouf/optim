@@ -51,8 +51,8 @@
                                         <div class="c-screen-header" bind-once ng-bind="screen.title" />
                                         <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
                                             <!-- Itération sur les spots de l'écran publicitaire -->
-                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index" mybindonce>
-                                                <div ng-if="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}" bind-once>
+                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
+                                                <div ng-if="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
                                                     <span class="fc-event-time" bind-once ng-bind="spot.duration" />
                                                     <span class="fc-event-title" bind-once ng-bind="spot.title" />
                                                 </div>

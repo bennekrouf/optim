@@ -7,22 +7,20 @@ var app = angular.module('OffreApp', ['ui.calendar', 'ui.bootstrap', 'ngRoute', 
 
 app.config(['$routeProvider', function($routeProvider){
 
-  $routeProvider
-  .when('/',     {templateUrl: 'views/calendar.html', view: 'mainContainer', controller: 'OffreCtrl'})
+$routeProvider
+  .when('/',         {templateUrl: 'views/calendar.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .when('/native',   {templateUrl: 'views/calendar.jq.html', view: 'mainContainer', controller: 'OffreCtrl'})
   .when('/tutorial', {templateUrl: 'views/tutorial.html', view: 'mainContainer', controller: 'TutorialCtrl'})
-  .when('/main', {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
+  .when('/main',     {templateUrl: 'views/main.html', view: 'mainContainer', controller: 'OffreCtrl'})
   .otherwise({redirectTo: '/404'});
 }]);
 
 app.controller('OffreCtrl', ['PubFactory', 'PeriodFactory', '$scope', 'CODE', 'DAYS_OF_WEEK',
   function CalendarCtrl(PubFactory, PeriodFactory, $scope, CODE, DAYS_OF_WEEK) {
       
-      
       $scope.affichage = {
-      
             displayTotalDuration : true
       };
-      
       
                              
     /* Initialisation des constantes */
@@ -189,6 +187,16 @@ app.controller('OffreCtrl', ['PubFactory', 'PeriodFactory', '$scope', 'CODE', 'D
     		$(".jqueryHideMe").show();
     	}
     	$scope.jqueryHide = !$scope.jqueryHide;
+    }
+    
+    $scope.jqueryHide2 = true;
+    $scope.jqueryHideMe2 = function(message) {
+    	if ($scope.jqueryHide2) {
+    		$(".jqueryHideMe").hide();
+    	} else {
+    		$(".jqueryHideMe").show();
+    	}
+    	$scope.jqueryHide2 = !$scope.jqueryHide2;
     }
 }]);
 
