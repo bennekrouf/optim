@@ -16,7 +16,8 @@ var app = angular.module('OffreApp')
 
 .constant('API', {
   'SPOT_LIST': '/api/spot/list',
-  'GRID': '/api/grid'
+  'GRID': '/api/grid',
+  'JSON_TEST': 'http://localhost:9105/offrePocWebService/offrepoc/grid/CPL/1'
 })
 
 /* Constants for Calandar building. */

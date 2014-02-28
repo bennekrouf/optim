@@ -45,13 +45,12 @@
                                 <td ng-repeat="dayOfWeek in gridDaysOfWeek" ng-init="dayOfWeekIndex = $index; screen = grid[period][dayOfWeek][0]" class="c-col-day">
                                     <!-- Affichage d'une cellule de grille -->
                                     <div class="c-screen">
-                                        <div class="c-screen-header" bind-once ng-bind="screen.title" />
+                                        <div class="c-screen-header" bind-once >{{screen.durVendue}} / {{screen.durComm}}</div>
                                         <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
                                             <!-- Itération sur les spots de l'écran publicitaire -->
                                             <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
                                                 <div ng-if="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
-                                                    <span class="fc-event-time" bind-once ng-bind="spot.duration" />
-                                                    <span class="fc-event-title" bind-once ng-bind="spot.title" />
+                                                    <span class="fc-event-time" bind-once ng-bind="spot.label" />
                                                 </div>
                                             </div>
                                         </div>

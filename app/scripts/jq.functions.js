@@ -86,7 +86,7 @@ function createGridCellContent(screen) {
     // header
     var headerDiv = document.createElement("div");
     headerDiv.className = "c-screen-header";
-    headerDiv.appendChild(document.createTextNode(screen.title));
+    headerDiv.appendChild(document.createTextNode(screen.durVendue + "/" + screen.durComm));
     result.appendChild(headerDiv);
     
     // Liste des spots
@@ -110,12 +110,7 @@ function createGridCellContent(screen) {
         var spotDuration = document.createElement("span");
         spotDuration.className = "fc-event-time";
         spot.appendChild(spotDuration);
-        spotDuration.appendChild(document.createTextNode(oneSpot.duration + " "));
-                         
-        var spotTitle = document.createElement("span");
-        spotTitle.className = "fc-event-title";
-        spot.appendChild(spotTitle);
-        spotTitle.appendChild(document.createTextNode(oneSpot.title));
+        spotDuration.appendChild(document.createTextNode(oneSpot.label));
     }
     return result;
 }

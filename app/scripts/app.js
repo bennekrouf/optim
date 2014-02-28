@@ -280,7 +280,7 @@ app.directive('draggable', function() {
             'dragstart',
             function(e) {
                 e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('Text', this.id);
+                e.dataTransfer.setData('id', this.id);
                 this.classList.add('drag');
                 return false;
             },
@@ -346,13 +346,11 @@ app.directive('droppable', function() {
                     if (e.stopPropagation) e.stopPropagation();
 
                     this.classList.remove('over');
-
-                    var item = document.getElementById(e.dataTransfer.getData('Text'));
+                    
+                    var binId = e.dataTransfer.getData('id');
+                    var item = document.getElementById(binId);
                     this.appendChild(item);
                     
-                    var binId = this.id;
-                    var item = document.getElementById(e.dataTransfer.getData('Text'));
-                    this.appendChild(item);
                     // call the passed drop function
                     scope.$apply(function(scope) {
                         var fn = scope.drop();

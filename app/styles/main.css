@@ -29,11 +29,13 @@ body {
 /* Class la colonne de période. */
 .c-col-period {
     min-width: 50px;
+    text-align: center;
 }
 /* Class les colonnes de journée. */
 .c-col-day {
     width: 140px;
     padding: 2px;
+    text-align: center;
 }
 /* Class pour une cellule de la grille. */
 .c-screen {
@@ -54,7 +56,6 @@ body {
     background-color: #3a87ad;
     color: #fff;
     font-size: 10px;
-    height: 30px;
     margin-bottom: 2px;
 }
 
