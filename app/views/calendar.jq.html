@@ -1,0 +1,144 @@
+<div id="calendarDiv" class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
+    
+	<div>
+	    <div class="row colonnes">
+	   		<div class="col-md-3">
+	   			<div class="panel-group" id="criteriaAccordion">
+					<div class="accordion" id="myAccordion">
+						    <div class="accordion-group">
+	                  			<!-- Bloque n°1 : Critères d'Affichage -->
+	                  			<div ng-include="'views/tpl/criteres.affichage.tpl.html'"></div>
+
+								<!-- Bloque n°2 : Filtres Ecrans -->
+	                  			<div ng-include="'views/tpl/filtres.ecrans.tpl.html'"></div>
+
+								<!-- Bloque n°3 : Filtres Campagnes -->
+	                  			<div ng-include="'views/tpl/filtres.campagnes.tpl.html'"></div>
+
+								<!-- Bloque n°4 : Details écran -->
+	                  			<div ng-include="'views/tpl/details.ecrans.tpl.html'"></div>
+							</div>
+	                </div>
+	            </div>
+	   		</div>
+
+	   		<div class="col-md-8">
+                <div id="placeholder">
+                    
+                </div>
+	   		</div>
+
+
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready( function() {
+    	
+    	$.ajax({
+		 	// The 'type' property sets the HTTP method.
+			// A value of 'PUT' or 'DELETE' will trigger a preflight request.
+			type: 'GET',
+			
+			// The URL to make the request to.
+			url: 'http://localhost:9105/offrePocWebService/offrepoc/grid/CPL/1',
+			
+			// The 'contentType' property sets the 'Content-Type' header.
+			// The JQuery default for this property is
+			// 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+			// a preflight. If you set this value to anything other than
+			// application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+			// you will trigger a preflight request.
+			contentType: 'json',
+			
+			crossDomain: true,
+			
+			xhrFields: {
+			  // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
+			  // This can be used to set the 'withCredentials' property.
+			  // Set the value to 'true' if you'd like to pass cookies to the server.
+			  // If this is enabled, your server must respond with the header
+			  // 'Access-Control-Allow-Credentials: true'.
+			  withCredentials: false
+			},
+			
+			headers: {
+			  // Set any custom headers here.
+			  // If you set any non-simple headers, your server must include these
+			  // headers in the 'Access-Control-Allow-Headers' response header.
+				'Access-Control-Allow-Origin': '*'
+			},
+			
+			success: function() {
+			  // Here's where you handle a successful response.
+				console.log("success");
+			},
+			
+			error: function() {
+			  // Here's where you handle an error response.
+			  // Note that if the error was due to a CORS issue,
+			  // this function will still fire, but there won't be any additional
+			  // information about the error.
+				console.log("error");
+			}
+   		});
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+//    	// Effectue un appel JSON pour r�cup�rer les donn�es de la grille
+//		var jqxhr = $.getJSON("http://localhost:9105/offrePocWebService/offrepoc/grid/CPL/1", function(data) {
+//			console.log("success" + data);
+//		})
+//		.done(function() {
+//			console.log("second success");
+//		})
+//		.fail(function() {
+//			console.log("error");
+//		})
+//		.always(function() {
+//			console.log("complete");
+//		});
+//		 
+//		// Perform other work here ...
+//		 
+//		// Set another completion function for the request above
+//		jqxhr.complete(function() {
+//		  console.log("second complete");
+//		});
+    	
+    	
+        //MakeTablejQuery(1000, 30);
+        //MakeTablejQueryNative(1000, 30);
+        createGridTable(10, 10);
+        
+        /*$(".draggable").draggable({
+          cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+          revert: "invalid", // when not dropped, the item will revert back to its initial position
+          containment: "document",
+          helper: "clone",
+          cursor: "move"
+        });
+
+        // let the trash be droppable, accepting the gallery items
+        $(".droppable").droppable({
+            accept: ".draggable",
+            activeClass: "ui-state-highlight",
+            drop: function( event, ui ) {
+                alert('drop');
+            }
+        });*/
+        
+    });
+</script>

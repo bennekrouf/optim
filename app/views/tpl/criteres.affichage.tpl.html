@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+
+    <div class="panel panel-heading">
+	    <div class="panel-title form-inline">
+		    <H4 data-toggle="collapse" data-target="#collapsible-crit-affichage" data-parent="#myAccordion">Affichage</H4>
+	    </div>
+
+    </div>
+
+	    <div id="collapsible-crit-affichage" class="collapse in">
+			<div class="panel-body">
+                <button class="btn btn-info" ng-click="affichage.displayTotalDuration=!affichage.displayTotalDuration">ToggleWithAngular</button>
+                <button class="btn btn-info" ng-click="jqueryHideMe();">ToggleWithJQuery</button>
+                <br/>
+
+                
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayTotalDuration"/>Durée totale
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayCommercialDuration"/>Durée Commercialiée
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayRemainingDuration"/>Durée restante
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displaySoldDuration"/>Durée vendue
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayOverbookedDuration"/>Durée surboukée
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayAuthorizedDuration"/>Surbook autorisé
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displaytarifFormat"/>Tarif format
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayMonospot"/>Monospot
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayNbrSpots"/>Nbr spots
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displaySpecifique"/>Spécifique
+                </label>
+                <label class="checkbox">
+				    <input class="pull-left" type="checkbox" ng-model="affichage.displayQuotas"/>Dép. quotas
+                </label>
+	    	</div>
+		</div>
+
+</div>	

@@ -1,0 +1,39 @@
+{
+  "name": "skel",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lololamb/skel",
+  "description": "POC",
+  "authors": [
+    "lololamb"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.12",
+    "bootstrap": "~3.1.0",
+    "angular-cookies": "~1.2.12",
+    "angular-route": "~1.2.12",
+    "angular-calendar": "*",
+    "angular-ui-calendar": "~0.8.0",
+    "angular-ui-bootstrap": "~0.10.0",
+    "jquery-ui": "~1.10.3",
+    "bootstrap-ui": "~0.10.0",
+    "bootstrap-css": "~3.0.0",
+    "normalize-css": "~3.0.0",
+    "d3": "~3.4.1",
+    "angular-mocks": "~1.2.12",
+    "angular-resource": "~1.2.13",
+    "angular-dragdrop": "~1.0.6",
+    "jquery": "~2.1.0",
+    "ui-bootstrap": "~0.10.0",
+    "angular-ui": "~0.4.0",
+    "angular-animate": "~1.2.13",
+    "angular-bindonce": "~0.3.1"
+  }
+}

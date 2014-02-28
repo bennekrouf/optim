@@ -1,0 +1,8 @@
+<div ng-class="['alert', 'alert-'+notification.type]"
+     ng-repeat="notification in getNotifications()" ng-click="removeNotification(notification)">
+    <h4>{{notification.title}}</h4>
+    <ul>
+        <li ng-repeat="message in notification.messages">{{message}}</li>
+    </ul>
+    <button class="close" ng-click="removeNotification(notification)">x</button>
+</div>

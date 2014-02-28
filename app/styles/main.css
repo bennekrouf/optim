@@ -1,0 +1,97 @@
+body {
+    font-size: 14px;
+}
+
+.offre-alert-container {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    z-index: 100;
+    width: 400px;
+}
+
+
+.offre-logo {
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    width: 500px;
+}
+
+/* Class pour le tableau de la grille. */
+.c-screen-table {
+    padding: 0 2px;
+}
+.c-screen-table tbody > tr > td {
+    padding: 2px;
+}
+
+/* Class la colonne de période. */
+.c-col-period {
+    min-width: 50px;
+    text-align: center;
+}
+/* Class les colonnes de journée. */
+.c-col-day {
+    width: 140px;
+    padding: 2px;
+    text-align: center;
+}
+/* Class pour une cellule de la grille. */
+.c-screen {
+    position: relative;
+    height: 100%;
+}
+/* Class pour le header d'une cellule de la grille. */
+.c-screen-header {
+    font-size: 10px;
+    text-align: center;
+    opacity: 0.3;
+}
+/* Class pour un spot de la grille. */
+.c-spot {
+    border-width: 1px 0;
+    cursor: pointer;
+    border: 1px solid #3a87ad;
+    background-color: #3a87ad;
+    color: #fff;
+    font-size: 10px;
+    margin-bottom: 2px;
+}
+
+/* Class pour les panels - la couleur bootstrap est trop fade. */
+.c-panel-heading {
+    color: #333333;
+    background-color: #9C9797;
+    border-color: #7C7878;
+    font-size: 0.1em;
+    -webkit-user-drag: element;
+    -webkit-user-select: none;
+}
+
+/* Class pour le tableau de la grille. */
+.c-screen-spots {
+    min-height: 50px;
+    min-width: 200px;
+    border: 1px solid #dddddd;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    margin: 0px;
+}
+
+.over {
+    background-color: #3a87ad;
+    opacity: 0.3;
+}
+
+.c-spot, .c-screen-spots, .over {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+.colonnes {
+    margin: 400px 400px 400 400;
+}

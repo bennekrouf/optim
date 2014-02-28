@@ -1,0 +1,69 @@
+<div id="calendarDiv" class="mainContainer" xmlns="http://www.w3.org/1999/html" ng-controller="OffreCtrl">
+    
+	<div>
+	    <div class="row colonnes">
+
+	   		<div class="col-md-3">
+
+	   			<div class="panel-group" id="criteriaAccordion">
+
+					<div class="accordion" id="myAccordion">
+
+						    <div class="accordion-group">
+	                  			
+	                  			<!-- Bloque n°1 : Critères d'Affichage -->
+	                  			<div ng-include="'views/tpl/criteres.affichage.tpl.html'"></div>
+
+								<!-- Bloque n°2 : Filtres Ecrans -->
+	                  			<div ng-include="'views/tpl/filtres.ecrans.tpl.html'"></div>
+
+								<!-- Bloque n°3 : Filtres Campagnes -->
+	                  			<div ng-include="'views/tpl/filtres.campagnes.tpl.html'"></div>
+
+								<!-- Bloque n°4 : Details écran -->
+	                  			<div ng-include="'views/tpl/details.ecrans.tpl.html'"></div>
+
+							</div>
+	                </div>
+
+	            </div>
+
+	   		</div>
+
+	   		<div class="col-md-8">
+                <div>
+                    <table class="table table-bordered c-screen-table">
+                        <thead>
+                            <tr>
+                                <th class="c-col-period"/>
+                                <th ng-repeat="dayOfWeek in daysOfWeek" class="c-col-day" bind-once ng-bind="dayOfWeek.day"/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="period in gridPeriods" ng-init="periodIndex = $index">
+                                <td class="c-col-period" bind-once ng-bind="period" />
+                                <td ng-repeat="dayOfWeek in gridDaysOfWeek" ng-init="dayOfWeekIndex = $index; screen = grid[period][dayOfWeek][0]" class="c-col-day">
+                                    <!-- Affichage d'une cellule de grille -->
+                                    <div class="c-screen">
+                                        <div class="c-screen-header" bind-once >{{screen.durVendue}} / {{screen.durComm}}</div>
+                                        <div id="spotDroppable_{{period}}_{{dayOfWeek}}" class="c-screen-spots" droppable drop="handleDrop">
+                                            <!-- Itération sur les spots de l'écran publicitaire -->
+                                            <div ng-repeat="spot in screen.spots" ng-init="spotIndex = $index">
+                                                <div ng-if="affichage.displayTotalDuration" id="spot_{{period}}_{{dayOfWeek}}_{{spotIndex}}" class="c-spot ui-draggable jqueryHideMe" unselectable="on" draggable toggleFade="{{fadeTotalDuration}}">
+                                                    <span class="fc-event-time" bind-once ng-bind="spot.label" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+	   		</div>
+
+
+		</div>
+	</div>
+
+</div>

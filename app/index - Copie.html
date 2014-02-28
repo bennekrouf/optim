@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="OffreApp">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/bootstrap-css/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/fullcalendar/fullcalendar.css">
+    
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="vendor/angular-cookies/angular-cookies.min.js"></script>
+    
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="vendor/fullcalendar/fullcalendar.js"></script>
+    <script type="text/javascript" src="vendor/fullcalendar/gcal.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular-ui/bootstrap/ui-bootstrap-0.9.0.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui/bootstrap/ui-bootstrap-tpls-0.9.0.min.js"></script>
+    
+    <script src="scripts/app.js"></script>
+    
+    <title>POC Offre</title>
+</head>
+
+<body ng-controller="OffreCtrl">
+    
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table>
+            <tbody>
+                  <tr ng-repeat="elem in liste">
+                    <td>{{elem.nom}}</td>
+                    <td>{{elem.prenom}}</td>
+                  </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="panel-body">
+        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div> 
+    </div>
+</div>
+    
+
+    
+    
+        
+</body>
+
+</html>
